@@ -1,0 +1,230 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define MAX 100
+ void sehir_sonuc_goster(char gecici_partiler[],int sehir_oy[], float parti_oy_yuzdesi[],int 
+parti_vekil[])
+ {
+ printf("\n\t\tOy Say \t\t Oy Yuzde\t\tMV Sayi");
+ printf("\n\t\t------\t\t------\t\t------\n");
+ for (int d = 0; d < 6; d++)
+ { 
+ printf("%c Partisi \t\t %d \t\t %.2f\t\t %d\n",gecici_partiler[d], sehir_oy[d], 
+parti_oy_yuzdesi[d], parti_vekil[d]);
+ }
+ }
+ void ulke_sonuc_goster(char siralanmamis_partiler[], int parti_toplam_oy[], float 
+ulke_oy_yuzde[] , int ulke_vekil[], float ulke_vekil_yuzde[])
+ {
+ printf("\n\t\tOy Say \t\tOy Yuzde\t\tMV Sayi\t\tMV Yuzde");
+ printf("\n\t\t------\t\t------\t\t\t------\t\t------\n"); 
+ for (int f = 0; f < 6; f++)
+ { 
+ printf("%c Partisinin\t %d \t\t %.2f\t\t\t%d\t\t%.2f\n",siralanmamis_partiler[f], 
+parti_toplam_oy[f], ulke_oy_yuzde[f], ulke_vekil[f], ulke_vekil_yuzde[f]);
+ }
+ }
+void bubblesort (int array[], char secondary_array[])
+{ 
+ for (int a = 0; a < 4; ++a)
+ {
+ for (int step = 0; step < 5; ++step) 
+ {
+ for (int i = 0; i < 5 - step; ++i) 
+ {
+ if (array[i] < array[i + 1]) 
+ {
+ int temp = array[i];
+ array[i] = array[i + 1];
+ array[i + 1] = temp;
+ 
+ char temp_ = secondary_array[i];
+ secondary_array[i] = secondary_array[i + 1];
+ secondary_array[i + 1] = temp_;
+ }
+ }
+ }
+ }
+}
+void bubblesort_2(int array[], char secondary_array[]) 
+{
+ for (int step = 0; step < 5; ++step) 
+ {
+ for (int i = 0; i < 5 - step; ++i) 
+ {
+ if (array[i] < array[i + 1]) 
+ {
+ int temp = array[i];
+ array[i] = array[i + 1];
+ array[i + 1] = temp;
+ 
+ char temp_ = secondary_array[i];
+ secondary_array[i] = secondary_array[i + 1];
+ secondary_array[i + 1] = temp_;
+ }
+ }
+ }
+}
+void bubblesort_3 (int array[], int secondary_array[])
+{ 
+ for (int a = 0; a < 4; ++a)
+ {
+ for (int step = 0; step < 5; ++step) 
+ {
+ for (int i = 0; i < 5 - step; ++i) 
+ {
+ if (array[i] < array[i + 1]) 
+ {
+ int temp = array[i];
+ array[i] = array[i + 1];
+ array[i + 1] = temp;
+ 
+ int temp_ = secondary_array[i];
+ secondary_array[i] = secondary_array[i + 1];
+ secondary_array[i + 1] = temp_;
+ }
+ }
+ }
+ }
+}
+int main ()
+{ 
+ char gecici_partiler[5][6]={'A', 'B', 'C', 'D', 'E', 'F', 'A', 'B', 'C', 'D', 'E', 'F', 'A', 'B', 'C', 'D', 'E', 'F', 
+'A', 'B', 'C', 'D', 'E', 'F', 'A', 'B', 'C', 'D', 'E', 'F'};
+ char gosterge_partiler[5][6]={'A', 'B', 'C', 'D', 'E', 'F', 'A', 'B', 'C', 'D', 'E', 'F', 'A', 'B', 'C', 'D', 'E', 'F', 
+'A', 'B', 'C', 'D', 'E', 'F', 'A', 'B', 'C', 'D', 'E', 'F'};
+ char siralanmamis_partiler[6]={'A', 'B', 'C', 'D', 'E', 'F'};
+ char partiler[6]= { 'A', 'B', 'C', 'D', 'E', 'F'};
+ int sehir_vekil[5]={ 0, 0, 0, 0, 0};
+ int sehir_vekil_gosterge[5]={ 0, 0, 0, 0, 0};
+ int sehir_oy[5][6] ={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0 };
+ int sehir_oy_gecici[5][6]={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 
+0, 0 };
+ int siralanmamis_sehir_oy[5][6]={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 
+0, 0, 0, 0, 0 };
+ int siralanmamis_sehir_oy_gecici[5][6]={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+0, 0,0, 0, 0, 0, 0, 0 };
+ float sehir_toplam_oy[5] = { 0, 0, 0, 0, 0 };
+ float parti_oy_yuzdesi[5][6] ={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 
+0, 0, 0 };
+ int parti_toplam_oy[6]={ 0, 0, 0, 0, 0, 0};
+ int parti_vekil[5][6]={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0 };
+ int siralanmis_parti_vekil[5][6]={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 
+0, 0, 0, 0 };
+ int ulke_vekil[6]={0, 0, 0, 0, 0, 0 };
+ int ulke_toplam_oy={0};
+ int ulke_toplam_vekil={0};
+ float ulke_vekil_yuzde[6]={0,0,0,0,0,0};
+ char yuzdeler[6] = { 'a', 'b', 'c', 'd', 'e', 'f'};
+ float ulke_oy_yuzde[6]={0,0,0,0,0,0};
+ 
+ 
+ printf("SECIM SIMULASYONUNA HOSGELDINIZ\n");
+ int i,j;
+ for (i = 0; i <= 4; i++)
+ {
+ printf ("Il Plaka Kodu: %d\n", i + 1);
+ for (j = 0; j <= 5; j++)
+{
+ printf ("%c in oyunu girin: ", partiler[j]);
+ scanf ("%d", &sehir_oy[i][j]);
+ sehir_toplam_oy[i] = sehir_toplam_oy[i] + sehir_oy[i][j];
+ siralanmamis_sehir_oy[i][j]=sehir_oy[i][j];
+}
+ bubblesort (sehir_oy[i], gecici_partiler[i]);
+ printf ("Vekil Sayisini Girin: ");
+ scanf ("%d", &sehir_vekil[i]);
+ printf ("\n");
+ for (int k = 0; k <= 5; k++)
+{
+ parti_oy_yuzdesi[i][k] =(sehir_oy[i][k] * 100) / sehir_toplam_oy[i];
+}
+ int c;
+ for (int c = 0; c <= 5; c++)
+{
+ sehir_oy_gecici[i][c]=sehir_oy[i][c];
+ gosterge_partiler[i][c]=gecici_partiler[i][c];
+ sehir_vekil_gosterge[i]=sehir_vekil[i];
+ siralanmamis_sehir_oy_gecici[i][c]=siralanmamis_sehir_oy[i][c];
+} 
+ 
+while(sehir_vekil[i]>0)
+ {
+ bubblesort (sehir_oy_gecici[i], gosterge_partiler[i]);
+ 
+ if (gosterge_partiler[i][0]=='A')
+ parti_vekil[i][0]++;
+ 
+ else if(gosterge_partiler[i][0]=='B') 
+ parti_vekil[i][1]++;
+ 
+ else if (gosterge_partiler[i][0]=='C')
+ parti_vekil[i][2]++;
+ 
+ else if (gosterge_partiler[i][0]=='D') 
+ parti_vekil[i][3]++;
+ 
+ else if(gosterge_partiler[i][0]=='E') 
+ parti_vekil[i][4]++;
+ 
+ else if(gosterge_partiler[i][0]=='F') 
+ parti_vekil[i][5]++;
+ 
+ 
+ sehir_vekil[i]--;
+ sehir_oy_gecici[i][0] = sehir_oy_gecici[i][0] / 2;
+ }
+ 
+ for (c = 0; c <= 5; c++)
+{
+ siralanmis_parti_vekil[i][c]=parti_vekil[i][c];
+} 
+ 
+ bubblesort_3 (siralanmamis_sehir_oy_gecici[i], siralanmis_parti_vekil[i]);
+ 
+ }
+ 
+ for (int b = 0; b <= 4; b++)
+ {
+ printf ("\nIl Plaka Kodu: %d\n", b + 1); 
+ printf ("Milletvekili kontenjani: %d\n", sehir_vekil_gosterge[b]);
+ printf ("Gecerli oy sayisi: %.2f\n", sehir_toplam_oy[b]);
+ printf ("Il birincisi: %d oy ile %c partisidir \n",sehir_oy[b][0], gecici_partiler[b][0]);
+ 
+ 
+sehir_sonuc_goster(gecici_partiler[b],sehir_oy[b],parti_oy_yuzdesi[b],siralanmis_parti_vekil[b]);
+ system("pause");
+ }
+ for (int g = 0; g <= 5; g++)
+ {
+ parti_toplam_oy[g]=siralanmamis_sehir_oy[0][g]+siralanmamis_sehir_oy[1][g]
++siralanmamis_sehir_oy[2][g]+siralanmamis_sehir_oy[3][g]+siralanmamis_sehir_oy[4][g];
+ }
+ 
+ulke_toplam_oy=parti_toplam_oy[0]+parti_toplam_oy[1]+parti_toplam_oy[2]+parti_toplam_oy[3]
++parti_toplam_oy[4]+parti_toplam_oy[5];
+ printf("\nulke toplam oy %d\n",ulke_toplam_oy);
+ 
+ for (int s = 0; s <= 5; s++)
+ {
+ ulke_oy_yuzde[s] =(parti_toplam_oy[s] * 100) / ulke_toplam_oy;
+ ulke_vekil[s]=parti_vekil[0][s]+parti_vekil[1][s]+parti_vekil[2][s]+parti_vekil[3][s]
++parti_vekil[4][s];
+ }
+ulke_toplam_vekil=ulke_vekil[0]+ulke_vekil[1]+ulke_vekil[2]+ulke_vekil[3]+ulke_vekil[4]+ulke_
+vekil[5];
+ printf("ulke toplam vekil %d\n ",ulke_toplam_vekil);
+ 
+ for (int p = 0; p <= 5; p++)
+ {
+ ulke_vekil_yuzde[p] =(ulke_vekil[p] * 100) / ulke_toplam_vekil;
+ }
+ ulke_sonuc_goster(siralanmamis_partiler, parti_toplam_oy, ulke_oy_yuzde, ulke_vekil, 
+ulke_vekil_yuzde); 
+ bubblesort_2 (ulke_vekil, partiler);
+ 
+printf("\niktidar parti; %c vekil sayisi: %d\n", partiler[0], ulke_vekil[0]);
+printf("ana muhalefet parti; %c vekil sayisi: %d\n", partiler[1], ulke_vekil[1]);
+ 
+ return 0; 
+}
